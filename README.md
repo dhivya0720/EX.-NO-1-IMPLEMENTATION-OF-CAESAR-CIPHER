@@ -17,34 +17,49 @@ STEP-5: Display the cipher text obtained above.
 
 ## PROGRAM:
 ```
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-    char text[100];
-    int key, i;
-
-    printf("Enter plain text: ");
-    fgets(text, sizeof(text), stdin);
-
-    printf("Enter key: ");
-    scanf("%d", &key);
-
-    for (i = 0; text[i] != '\0'; i++) {
-        if (text[i] >= 'a' && text[i] <= 'z')
-            text[i] = (text[i] - 'a' + key + 26) % 26 + 'a';
-        else if (text[i] >= 'A' && text[i] <= 'Z')
-            text[i] = (text[i] - 'A' + key + 26) % 26 + 'A';
-    }
-
-    printf("Cipher text: %s", text);
-
-    return 0;
+#include<stdio.h> 
+#include<string.h> 
+#include<ctype.h> 
+int main() 
+{ 
+char plain[100], cipher[100]; 
+int key, i, length; 
+printf("Enter the plain text: "); 
+scanf("%s", plain); 
+printf("Enter the key value: "); 
+scanf("%d", &key); 
+printf("\nPLAIN TEXT: %s", plain); 
+printf("\nENCRYPTED TEXT: "); 
+length = strlen(plain); 
+for (i = 0; i < length; i++) { 
+    cipher[i] = plain[i] + key; 
+    if (isupper(plain[i]) && cipher[i] > 'Z') { 
+        cipher[i]= cipher[i] - 26; 
+    } 
+    if (islower(plain[i]) && cipher[i] > 'z') { 
+        cipher[i] = cipher[i] - 26; 
+    } 
+    printf("%c", cipher[i]); 
+} 
+    cipher[length] = '\0';
+    printf("\nDECRYPTED TEXT: "); 
+    for (i = 0; i < length; i++) { 
+        plain[i] = cipher[i] - key; 
+        if (isupper(cipher[i]) && plain[i] < 'A') { 
+            plain[i] = plain[i] + 26; 
+        } 
+        if (islower(cipher[i]) && plain[i] < 'a') { 
+            plain[i] = plain[i] + 26; 
+        } 
+        printf("%c", plain[i]); 
+    } 
+    plain[length] = '\0'; 
 }
 ```
 
 ## OUTPUT:
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a6abaa2c-4163-4aa8-9f6d-20ba7d03fc5e" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ec03d7f5-c9d8-46ab-8e12-0bb111a20fe2" />
+
 
 
 ## RESULT :
