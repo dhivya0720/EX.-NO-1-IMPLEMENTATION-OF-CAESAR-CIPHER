@@ -58,7 +58,8 @@ for (i = 0; i < length; i++) {
 ```
 
 ## OUTPUT:
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ec03d7f5-c9d8-46ab-8e12-0bb111a20fe2" />
+<img width="515" height="313" alt="image" src="https://github.com/user-attachments/assets/ce8efac8-ca27-4b63-a975-4227d5f6cb4d" />
+
 
 
 
